@@ -1,34 +1,39 @@
 import './App.css'
+import {useState} from "react";
+import HolyGrail from "./components/holyGrail/holyGrail.jsx";
+import Test from "./components/test.jsx";
 
 function App() {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const conceptComponents = [
+        <HolyGrail key="holyGrail"/>,
+        <Test key="test"/>,
+    ];
 
-  return (
-    <>
-        <div className="container">
-            <header>Header</header>
-            <nav>
-                <ul>
-                    <li>Navigation Item 1</li>
-                    <li>Navigation Item 2</li>
-                    <li>Navigation Item 3</li>
-                    <li>Navigation Item 4</li>
-                </ul>
-            </nav>
-            <main>
-                <h2>Main Content</h2>
-                <p>
-                    This is the main content area. It will expand to fill the available space between the two sidebars.
-                </p>
-                <p>Put your app content here.</p>
-            </main>
-            <aside>
-                <h3>Right Sidebar</h3>
-                <p>Additional info or ads go here.</p>
-            </aside>
-            <footer>Footer © 2025</footer>
-        </div>
-    </>
-  )
+    return (
+        <>
+            <div>
+                {conceptComponents.map((_, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setCurrentIndex(index)}
+                        style={{
+                            margin: '0 5px',
+                            padding: '5px 10px',
+                            backgroundColor: currentIndex === index ? '#007bff' : '#ccc',
+                            color: currentIndex === index ? '#fff' : '#000',
+                            border: 'none',
+                            borderRadius: '3px',
+                            cursor: 'pointer',
+                        }}
+                    >
+                        {index + 1}
+                    </button>
+                ))}
+            </div>
+            {conceptComponents[currentIndex]}
+        </>
+    )
 }
 
 export default App
