@@ -1,20 +1,31 @@
 import './App.css'
-import {useState} from "react";
+import {useState, useContext} from "react";
 import HolyGrail from "./components/holyGrail/holyGrail.jsx";
 import Form from "./components/formToDoList/form.jsx";
 import Accordion from './components/accordion/accordion.jsx';
+import useTheme  from './components/lightDarkMode/ThemeContext.jsx';
 
 function App() {
+    const {theme, toggleTheme} = useTheme();
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const conceptComponents = [
-        <HolyGrail key="holyGrail"/>,
-        <Form key="form"/>,
-        <Accordion key="accordion"/>
+        <HolyGrail key="HolyGrail"/>,
+        <Form key="ToDo Form"/>,
+        <Accordion key="Accordion"/>,
     ];
+
+    const appStyles = {
+    backgroundColor: theme === 'light' ? '#b87a7aff' : '#1f1919ff',
+    color: theme === 'light' ? '#1f1919ff' : '#b87a7aff',
+    padding: '9px'
+  };
+
 
     return (
         <>
-            <div>
+            <div style={appStyles}>
+                 <button onClick={toggleTheme}>Toggle Theme</button> {conceptComponents[currentIndex].key}
                 {conceptComponents.map((_, index) => (
                     <button
                         key={index}
@@ -33,7 +44,9 @@ function App() {
                     </button>
                 ))}
             </div>
-            {conceptComponents[currentIndex]}
+            <div style={{padding:'10px'}}>
+                {conceptComponents[currentIndex]}
+            </div>
         </>
     )
 }
