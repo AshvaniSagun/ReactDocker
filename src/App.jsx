@@ -1,13 +1,15 @@
 import './App.css'
 import {useState} from "react";
 import HolyGrail from "./components/holyGrail/holyGrail.jsx";
-import Test from "./components/test.jsx";
+import Form from "./components/formToDoList/form.jsx";
+import Accordion from './components/accordion/accordion.jsx';
 
 function App() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const conceptComponents = [
         <HolyGrail key="holyGrail"/>,
-        <Test key="test"/>,
+        <Form key="form"/>,
+        <Accordion key="accordion"/>
     ];
 
     return (
