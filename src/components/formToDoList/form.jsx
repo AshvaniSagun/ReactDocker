@@ -40,11 +40,11 @@ function Form() {
 
     return (
         <>
-            <form onSubmit={addToList}>
+            <form onSubmit={addToList} style={{display:'flex', justifyContent:'center'}}>
                 <label>
                     Name:
                     <input type="text" name="name" value={getFormData.name} onChange={(e) => setFormData({ ...getFormData, [e.target.name]: e.target.value })} />
-                </label>
+                </label>&nbsp;&nbsp;&nbsp;
                 <label>
                     Email:
                     <input type="text" name="email" value={getFormData.email} onChange={(e) => setFormData({ ...getFormData, [e.target.name]: e.target.value })} />
