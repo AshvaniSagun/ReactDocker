@@ -4,6 +4,8 @@ import HolyGrail from "./components/holyGrail/holyGrail.jsx";
 import Form from "./components/formToDoList/form.jsx";
 import Accordion from './components/accordion/accordion.jsx';
 import useTheme  from './components/lightDarkMode/ThemeContext.jsx';
+import Practice from './components/practice/practice.jsx';
+import CustomComponent from './components/customHook/customComponent.jsx';
 
 function App() {
     const {theme, toggleTheme} = useTheme();
@@ -13,6 +15,8 @@ function App() {
         <HolyGrail key="HolyGrail"/>,
         <Form key="ToDo Form"/>,
         <Accordion key="Accordion"/>,
+        <Practice key="Practice"/>,
+        <CustomComponent key="CustomComponent"/>
     ];
 
     const appStyles = {
