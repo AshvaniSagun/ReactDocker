@@ -8,6 +8,7 @@ import Practice from './components/practice/practice.jsx';
 import CustomHookComponent from './components/customHook/customHookComponent.jsx';
 import Counter from './components/counter/counter.jsx';
 import FetchData from './components/fetchData/fetchData.jsx';
+import DebounceSearch from './components/debouncing/debouncing.jsx';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -19,7 +20,8 @@ function App() {
     { name: "Practice", component: <Practice /> },
     { name: "Custom Hook", component: <CustomHookComponent /> },
     { name: "Counter", component: <Counter /> },
-    { name: "Fetch Data", component: <FetchData /> }
+    { name: "Fetch Data", component: <FetchData /> },
+    { name: "DebounceSearch", component: <DebounceSearch /> }
   ];
 
   const appStyles = {
