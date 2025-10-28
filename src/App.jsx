@@ -6,6 +6,7 @@ import Accordion from './components/accordion/accordion.jsx';
 import useTheme  from './components/lightDarkMode/ThemeContext.jsx';
 import Practice from './components/practice/practice.jsx';
 import CustomHookComponent from './components/customHook/customHookComponent.jsx';
+import Counter from './components/counter.jsx';
 
 function App() {
     const {theme, toggleTheme} = useTheme();
@@ -16,7 +17,8 @@ function App() {
         <Form key="ToDo Form"/>,
         <Accordion key="Accordion"/>,
         <Practice key="Practice"/>,
-        <CustomHookComponent key="CustomHookComponent"/>
+        <CustomHookComponent key="CustomHookComponent"/>,
+        <Counter key="Counter"/>
     ];
 
     const appStyles = {
