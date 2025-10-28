@@ -7,18 +7,19 @@ import useTheme  from './components/lightDarkMode/ThemeContext.jsx';
 import Practice from './components/practice/practice.jsx';
 import CustomHookComponent from './components/customHook/customHookComponent.jsx';
 import Counter from './components/counter/counter.jsx';
+import FetchData from './components/fetchData/fetchData.jsx'
 
 function App() {
     const {theme, toggleTheme} = useTheme();
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const conceptComponents = [
         <HolyGrail key="HolyGrail"/>,
-        <Form key="ToDo Form"/>,
+        <Form key="ToDoFormWithValiddation"/>,
         <Accordion key="Accordion"/>,
         <Practice key="Practice"/>,
         <CustomHookComponent key="CustomHookComponent"/>,
-        <Counter key="Counter"/>
+        <Counter key="Counter"/>,
+        <FetchData key="FetchAndEditData"/>
     ];
 
     const appStyles = {

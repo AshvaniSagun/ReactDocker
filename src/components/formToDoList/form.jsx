@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 function Form() {
 
@@ -8,10 +8,28 @@ function Form() {
     });
     const [editItem, setEditItem] = useState(null);
     const [formDataList, setFormDataList] = useState([])
+    const [errors, setErrors] = useState({});
+       
+    const validateForm = () => {
+         let tempErrors = {};
+
+         if(!getFormData.name.trim()) {
+            tempErrors.name = "Name is required"
+         }
+         if(!getFormData.email.trim()) {
+            tempErrors.email = "Email is required"
+         }
+
+         setErrors(tempErrors)
+         return Object.keys(tempErrors).length === 0;
+    }
 
     const addToList = (e) => {
         e.preventDefault() // To prevent page reload on form submit
         setFormDataList([...formDataList, getFormData]);
+        if(!validateForm()) return;
+        setFormData({ name: "", email: "" });
+        setErrors({});
     }
 
     const onEditItem = (index) => {
@@ -37,17 +55,18 @@ function Form() {
 
     }
 
-
     return (
         <>
             <form onSubmit={addToList} style={{display:'flex', justifyContent:'center'}}>
                 <label>
                     Name:
                     <input type="text" name="name" value={getFormData.name} onChange={(e) => setFormData({ ...getFormData, [e.target.name]: e.target.value })} />
+                    {errors.name && <span style={{ color: "red" }}>{errors.name}</span>}
                 </label>&nbsp;&nbsp;&nbsp;
                 <label>
                     Email:
                     <input type="text" name="email" value={getFormData.email} onChange={(e) => setFormData({ ...getFormData, [e.target.name]: e.target.value })} />
+                    {errors.email && <span style={{ color: "red" }}>{errors.email}</span>}
                 </label>
                 <button type="submit">Add to list</button>
             </form><br/><br/>
