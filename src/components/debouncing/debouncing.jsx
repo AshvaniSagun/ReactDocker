@@ -10,9 +10,7 @@ function DebounceSearch(){
       setDebounceSearch(input);
     },3000)
 
-    return function () {
-        clearTimeout(handler);
-    }
+return () => clearTimeout(handler)
    },[input])
    
    return (

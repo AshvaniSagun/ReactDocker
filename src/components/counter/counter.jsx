@@ -2,7 +2,6 @@ import { useState } from "react";
 
 function Counter () {
     const [counter, setCounter] = useState(null);
-    console.log(counter)
 
     const decrementCounter = () => {
         if(counter === 0 ) { // Does not allow the counter to go below 0 

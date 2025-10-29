@@ -9,6 +9,8 @@ import CustomHookComponent from './components/customHook/customHookComponent.jsx
 import Counter from './components/counter/counter.jsx';
 import FetchData from './components/fetchData/fetchData.jsx';
 import DebounceSearch from './components/debouncing/debouncing.jsx';
+import Parent from './components/parentChildRelationship/parent.jsx';
+import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -21,7 +23,9 @@ function App() {
     { name: "Custom Hook", component: <CustomHookComponent /> },
     { name: "Counter", component: <Counter /> },
     { name: "Fetch Data", component: <FetchData /> },
-    { name: "DebounceSearch", component: <DebounceSearch /> }
+    { name: "DebounceSearch", component: <DebounceSearch /> },
+    { name: "ParentChildRelation", component: <Parent /> },
+    { name: "ToggleUsingRef", component: <ToggleUsingRef /> }
   ];
 
   const appStyles = {

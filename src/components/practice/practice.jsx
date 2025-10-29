@@ -5,8 +5,7 @@ function Practice () {
     const [input, setInput] = useState('');
     const [inputDataList, setInputDataList] = useState([]);
     const [isEdit, setIsEdit] = useState(null);
-    console.log(inputDataList)
-
+    
     const addItem = () => {
         const itemList = [...inputDataList, input];
         setInputDataList(itemList)
