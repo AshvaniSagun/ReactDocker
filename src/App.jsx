@@ -11,6 +11,7 @@ import FetchData from './components/fetchData/fetchData.jsx';
 import DebounceSearch from './components/debouncing/debouncing.jsx';
 import Parent from './components/parentChildRelationship/parent.jsx';
 import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
+import TreeComponent from './components/treeLikeStructure/TreeComponent.jsx';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -25,7 +26,9 @@ function App() {
     { name: "Fetch Data", component: <FetchData /> },
     { name: "DebounceSearch", component: <DebounceSearch /> },
     { name: "ParentChildRelation", component: <Parent /> },
-    { name: "ToggleUsingRef", component: <ToggleUsingRef /> }
+    { name: "ToggleUsingRef", component: <ToggleUsingRef /> },
+    { name: "TreeComponent", component: <TreeComponent /> },
+
   ];
 
   const appStyles = {
