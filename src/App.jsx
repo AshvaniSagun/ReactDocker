@@ -1,5 +1,10 @@
 import './App.css'
 import { useState } from "react";
+
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+import { MegaMenu } from 'primereact/megamenu';
+
 import HolyGrail from "./components/holyGrail/holyGrail.jsx";
 import Form from "./components/formToDoList/form.jsx";
 import Accordion from './components/accordion/accordion.jsx';
@@ -12,18 +17,12 @@ import DebounceSearch from './components/debouncing/debouncing.jsx';
 import Parent from './components/parentChildRelationship/parent.jsx';
 import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
 import TreeComponent from './components/treeLikeStructure/TreeComponent.jsx';
-import { MegaMenu } from 'primereact/megamenu';
-
-import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import 'primereact/resources/primereact.min.css';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
 
-  // we only need one state for showing whichever component is active
   const [activeComponent, setActiveComponent] = useState(<HolyGrail />);
 
-  // your concept components (Practice removed from here)
   const conceptComponents = [
     { name: "HolyGrail", component: <HolyGrail /> },
     { name: "Form", component: <Form /> },
@@ -37,7 +36,6 @@ function App() {
     { name: "TreeComponent", component: <TreeComponent /> },
   ];
 
-  // MegaMenu items setup
   const items = [
     {
       label: 'Concepts',
