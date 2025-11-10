@@ -1,10 +1,5 @@
 import './App.css'
 import { useState } from "react";
-
-import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import 'primereact/resources/primereact.min.css';
-import { MegaMenu } from 'primereact/megamenu';
-
 import HolyGrail from "./components/holyGrail/holyGrail.jsx";
 import Form from "./components/formToDoList/form.jsx";
 import Accordion from './components/accordion/accordion.jsx';
@@ -17,11 +12,15 @@ import DebounceSearch from './components/debouncing/debouncing.jsx';
 import Parent from './components/parentChildRelationship/parent.jsx';
 import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
 import TreeComponent from './components/treeLikeStructure/TreeComponent.jsx';
+import { MegaMenu } from 'primereact/megamenu';
+
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
-
   const [activeComponent, setActiveComponent] = useState(<HolyGrail />);
+  const [activeName, setActiveName] = useState("HolyGrail");
 
   const conceptComponents = [
     { name: "HolyGrail", component: <HolyGrail /> },
@@ -46,34 +45,49 @@ function App() {
             label: 'Components',
             items: conceptComponents.map((item) => ({
               label: item.name,
-              command: () => setActiveComponent(item.component),
-            }))
-          }
-        ]
-      ]
+              command: () => {
+                setActiveComponent(item.component);
+                setActiveName(item.name);
+              },
+            })),
+          },
+        ],
+      ],
     },
     {
-      label: 'Practice Playground',
+      label: 'Coming Soon 1',
       icon: 'pi pi-spin pi-cog',
-      command: () => setActiveComponent(<Practice />)
+      command: () => {
+        setActiveComponent(<Practice />);
+        setActiveName("Practice");
+      },
     },
     {
       label: 'Coming Soon 2',
       icon: 'pi pi-spin pi-cog',
-      items: [[]] // still empty
-    }
+      items: [[]],
+    },
   ];
 
   const appStyles = {
     backgroundColor: theme === 'light' ? '#b87a7aff' : '#1f1919ff',
     color: theme === 'light' ? '#1f1919ff' : '#b87a7aff',
-    padding: '9px'
+    padding: '9px',
+  };
+
+  const headerStyle = {
+    display: 'flex',
+    alignItems: 'center',
   };
 
   return (
     <>
       <div style={appStyles}>
-        <button onClick={toggleTheme}>Toggle Theme</button>{" "}
+        <div style={headerStyle}>
+          <button onClick={toggleTheme}>Toggle Theme</button>
+          <h3 style={{ margin: 0 }}>🧩 {activeName}</h3>
+        </div>
+
         <div className="card" style={{ marginTop: '10px' }}>
           <MegaMenu model={items} breakpoint="500px" />
         </div>
