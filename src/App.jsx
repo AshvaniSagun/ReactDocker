@@ -12,15 +12,22 @@ import DebounceSearch from './components/debouncing/debouncing.jsx';
 import Parent from './components/parentChildRelationship/parent.jsx';
 import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
 import TreeComponent from './components/treeLikeStructure/TreeComponent.jsx';
+import { MegaMenu } from 'primereact/megamenu';
+
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
-  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // we only need one state for showing whichever component is active
+  const [activeComponent, setActiveComponent] = useState(<HolyGrail />);
+
+  // your concept components (Practice removed from here)
   const conceptComponents = [
     { name: "HolyGrail", component: <HolyGrail /> },
     { name: "Form", component: <Form /> },
     { name: "Accordion", component: <Accordion /> },
-    { name: "Practice", component: <Practice /> },
     { name: "Custom Hook", component: <CustomHookComponent /> },
     { name: "Counter", component: <Counter /> },
     { name: "Fetch Data", component: <FetchData /> },
@@ -28,7 +35,35 @@ function App() {
     { name: "ParentChildRelation", component: <Parent /> },
     { name: "ToggleUsingRef", component: <ToggleUsingRef /> },
     { name: "TreeComponent", component: <TreeComponent /> },
+  ];
 
+  // MegaMenu items setup
+  const items = [
+    {
+      label: 'Concepts',
+      icon: 'pi pi-code',
+      items: [
+        [
+          {
+            label: 'Components',
+            items: conceptComponents.map((item) => ({
+              label: item.name,
+              command: () => setActiveComponent(item.component),
+            }))
+          }
+        ]
+      ]
+    },
+    {
+      label: 'Practice Playground',
+      icon: 'pi pi-spin pi-cog',
+      command: () => setActiveComponent(<Practice />)
+    },
+    {
+      label: 'Coming Soon 2',
+      icon: 'pi pi-spin pi-cog',
+      items: [[]] // still empty
+    }
   ];
 
   const appStyles = {
@@ -41,27 +76,13 @@ function App() {
     <>
       <div style={appStyles}>
         <button onClick={toggleTheme}>Toggle Theme</button>{" "}
-        {conceptComponents.map((item, index) => (
-          <button
-            key={item.name}
-            onClick={() => setCurrentIndex(index)}
-            style={{
-              margin: '0 5px',
-              padding: '5px 10px',
-              backgroundColor: currentIndex === index ? '#007bff' : '#ccc',
-              color: currentIndex === index ? '#fff' : '#000',
-              border: 'none',
-              borderRadius: '3px',
-              cursor: 'pointer',
-            }}
-          >
-            {item.name}
-          </button>
-        ))}
+        <div className="card" style={{ marginTop: '10px' }}>
+          <MegaMenu model={items} breakpoint="500px" />
+        </div>
       </div>
 
       <div style={{ padding: '10px' }}>
-        {conceptComponents[currentIndex].component}
+        {activeComponent}
       </div>
     </>
   );

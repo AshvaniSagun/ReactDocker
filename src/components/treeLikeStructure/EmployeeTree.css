@@ -1,11 +1,13 @@
-ul {
+/* Container UL for tree structure */
+.tree-children {
   list-style-type: none;
   margin-left: 20px;
   padding-left: 10px;
   border-left: 2px solid #ccc;
 }
 
-li span {
+/* Individual list item */
+.tree-item .tree-label {
   padding: 4px 8px;
   display: inline-block;
   border-radius: 4px;

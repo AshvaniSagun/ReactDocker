@@ -7,12 +7,12 @@ const TreeNode = ({ employee, employees }) => {
   const subordinates = employees.filter(e => e.MgrId === employee.Eid);
 
   return (
-    <li>
-      <span>
+    <li className="tree-node"> 
+      <span className="tree-label">
         {employee.Fname} {employee.Lname}
       </span>
       {subordinates.length > 0 && (
-        <ul>
+        <ul className="tree-children">
           {subordinates.map(sub => (
             <TreeNode key={sub.Eid} employee={sub} employees={employees} />
           ))}
