@@ -37,7 +37,7 @@ function App() {
 
   const items = [
     {
-      label: 'Concepts',
+      label: 'Coding topics',
       icon: 'pi pi-code',
       items: [
         [
@@ -55,7 +55,7 @@ function App() {
       ],
     },
     {
-      label: 'Coming Soon 1',
+      label: 'Practice Playground',
       icon: 'pi pi-spin pi-cog',
       command: () => {
         setActiveComponent(<Practice />);
@@ -63,7 +63,7 @@ function App() {
       },
     },
     {
-      label: 'Coming Soon 2',
+      label: 'New in React 19',
       icon: 'pi pi-spin pi-cog',
       items: [[]],
     },
