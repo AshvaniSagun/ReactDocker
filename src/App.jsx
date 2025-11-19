@@ -12,6 +12,7 @@ import DebounceSearch from './components/debouncing/debouncing.jsx';
 import Parent from './components/parentChildRelationship/parent.jsx';
 import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
 import TreeComponent from './components/treeLikeStructure/TreeComponent.jsx';
+import Storage from './components/customHookStorage/storage.jsx';
 import { MegaMenu } from 'primereact/megamenu';
 
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
@@ -33,6 +34,7 @@ function App() {
     { name: "ParentChildRelation", component: <Parent /> },
     { name: "ToggleUsingRef", component: <ToggleUsingRef /> },
     { name: "TreeComponent", component: <TreeComponent /> },
+    { name: "Storage", component: <Storage />}
   ];
 
   const items = [
