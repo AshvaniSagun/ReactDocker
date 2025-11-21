@@ -1,5 +1,10 @@
 import './App.css'
 import { useState } from "react";
+
+import { MegaMenu } from 'primereact/megamenu';
+import 'primereact/resources/themes/lara-light-indigo/theme.css';
+import 'primereact/resources/primereact.min.css';
+
 import HolyGrail from "./components/holyGrail/holyGrail.jsx";
 import Form from "./components/formToDoList/form.jsx";
 import Accordion from './components/accordion/accordion.jsx';
@@ -13,10 +18,7 @@ import Parent from './components/parentChildRelationship/parent.jsx';
 import ToggleUsingRef from './components/toggleUsingRef/toggleUsingRef.jsx';
 import TreeComponent from './components/treeLikeStructure/TreeComponent.jsx';
 import Storage from './components/customHookStorage/storage.jsx';
-import { MegaMenu } from 'primereact/megamenu';
-
-import 'primereact/resources/themes/lara-light-indigo/theme.css';
-import 'primereact/resources/primereact.min.css';
+import ReactPortals from './components/reactPortals/reactPortals.jsx';
 
 function App() {
   const { theme, toggleTheme } = useTheme();
@@ -34,7 +36,8 @@ function App() {
     { name: "ParentChildRelation", component: <Parent /> },
     { name: "ToggleUsingRef", component: <ToggleUsingRef /> },
     { name: "TreeComponent", component: <TreeComponent /> },
-    { name: "Storage", component: <Storage />}
+    { name: "Storage", component: <Storage />},
+    { name : "ReactPortals", component: <ReactPortals/>}
   ];
 
   const items = [
