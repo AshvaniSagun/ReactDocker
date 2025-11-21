@@ -33,7 +33,7 @@ const ReactPortals = () => {
 
   return (
     <div>
-      <h1>My App</h1>
+      <h1>React Portals</h1>
       <button onClick={() => setIsOpen(true)}>Open Modal</button>
       <Modal visible={isOpen} onClose={() => setIsOpen(false)} />
     </div>
